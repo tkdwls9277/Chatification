@@ -70,10 +70,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
         holder.TextView_msg.setText(chat.getMsg());
 
         if(chat.getNickname().equals(this.myNickName)) {
-//            holder.TextView_msg.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.TextView_msg.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.TextView_nickname.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
         }
         else {
-
+            holder.TextView_msg.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            holder.TextView_nickname.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
         }
 
     }
@@ -88,6 +90,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
 
     public ChatData getChat(int position) {
         return mDataset != null ? mDataset.get(position) : null;
+    }
+
+    public void addChat(ChatData chat) {
+        mDataset.add(chat);
+        notifyItemInserted(mDataset.size()-1); //갱신
     }
 
 }

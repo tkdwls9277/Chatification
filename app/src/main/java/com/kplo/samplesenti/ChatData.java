@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by KPlo on 2018. 11. 3..
  */
 
-public class ChatData implements Serializable {
+public class ChatData {
     private String msg;
     private String nickname;
 
