@@ -2,15 +2,11 @@ package com.kplo.samplesenti;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -106,7 +102,9 @@ public class NewsActivity extends AppCompatActivity {
                                     if(obj != null) {
                                         int position = (int)obj;
                                         ((MyAdapter)mAdapter).getNews(position).getContent();
-                                      
+                                        Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
+                                        intent.putExtra("news", ((MyAdapter)mAdapter).getNews(position));
+                                        startActivity(intent);
                                         //1. 본문
                                         //2. 전체
                                             //2-1. 하나씩
