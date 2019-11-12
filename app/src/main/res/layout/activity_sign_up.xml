@@ -3,50 +3,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chatification"
         android:textSize="50px"
-        android:layout_above="@+id/editId"
+        android:layout_above="@+id/sEditId"
         android:layout_centerHorizontal="true"
         android:padding="30px"/>
     <EditText
         android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:id="@+id/editId"
+        android:id="@+id/sEditId"
         android:hint="I D"
         android:textAlignment="center"
-        android:layout_above="@+id/editPw"
+        android:layout_above="@+id/sEditPw"
         android:layout_centerHorizontal="true"/>
     <EditText
         android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:id="@+id/editPw"
+        android:id="@+id/sEditPw"
         android:hint="P A S S W O R D"
         android:textAlignment="center"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="30px"/>
-    <Button
+        android:layout_above="@+id/sEditName"
+        android:layout_centerInParent="true"/>
+    <EditText
+        android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/editPw"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/loginBtn"
-        android:text="로그인"
-        android:textSize="50px"
-        android:onClick="onClickBtn"/>
+        android:id="@+id/sEditName"
+        android:hint="N A M E"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        />
+    <EditText
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:id="@+id/sEditAge"
+        android:hint="A G E"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30px"
+        android:layout_below="@+id/sEditName"/>
 
     <Button
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/signUpBtn"
-        android:layout_below="@+id/loginBtn"
+        android:layout_below="@+id/sEditAge"
         android:layout_centerHorizontal="true"
-        android:text="회원가입"
+        android:id="@+id/confirmBtn"
+        android:text="확인"
         android:textSize="50px"
-        android:onClick="onClickBtn"/>
+        android:onClick="sOnClickBtn"/>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/cancelBtn"
+        android:layout_below="@+id/confirmBtn"
+        android:layout_centerHorizontal="true"
+        android:text="취소"
+        android:textSize="50px"
+        android:onClick="sOnClickBtn"/>
 
 </RelativeLayout>
