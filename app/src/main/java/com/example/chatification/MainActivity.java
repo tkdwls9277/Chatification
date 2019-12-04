@@ -24,10 +24,13 @@ public class MainActivity extends AppCompatActivity {
     public void onClickBtn(View v) {
         switch (v.getId()) {
             case R.id.loginBtn:
+
+                startActivity(new Intent(v.getContext(), MenuActivity.class));
                 break;
             case R.id.signUpBtn:
                 startActivity(new Intent(v.getContext(), SignUpActivity.class));
                 break;
         }
     }
+
 }
