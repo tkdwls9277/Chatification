@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?> <!--리스트 아이템-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#B2EBF4"/> <!--내부-->
+    <stroke android:width="3dip" android:color="#FFFFFF" /> <!--경계선-->
+    <corners android:radius="10dip"/> <!--모서리 둥근 정도-->
+    <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />
+
+</shape>

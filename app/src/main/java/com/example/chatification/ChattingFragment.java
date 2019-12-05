@@ -49,15 +49,22 @@ public class ChattingFragment extends Fragment {
                 ssl.postHttps("https://jobs.gnu.ac.kr/user/Pg/PgPg010L.do?CURRENT_MENU_CODE=MENU2017&TOP_MENU_CODE=MENU2016", 1000, 1000);
 
                 Document doc = Jsoup.connect("https://jobs.gnu.ac.kr/user/Pg/PgPg010L.do?CURRENT_MENU_CODE=MENU2017&TOP_MENU_CODE=MENU2016").get();
-                Elements elements = doc.select("div[class=tableList]").select("tr");
+                Elements elements = doc.select("div[class=tableList] tbody").select("tr");
 
                 for(Element elem : elements) { // elements에서 하나씩 꺼내서 elem에 저장
-                    String title = elem.select("tr th[class=ellipsis] a").text();
-                    String endDate = elem.select("tr td br").text(); // 이건 아닐 수 있다
+                    String title = elem.select("th[class=ellipsis] a").text();
+                    String tdText = elem.select("td").text(); // 이건 아닐 수 있다
 
-                    Log.e(title, endDate);
+                    String[] textSplited = tdText.split(" ");
+                    String endDate = "접수 마감 : " + textSplited[3] + " " + textSplited[4]; // 연.월.일 + 시간대
+                    String isAccepting = textSplited[9]; // 접수중 or 마감
 
-                    arrayList.add(new ListItem(title, endDate));
+                    boolean status = false;
+                    if (isAccepting.equals("접수중")) status = true;
+
+                    // Log.e(title, tdText);
+
+                    arrayList.add(new ListItem(title, endDate, status));
                 }
             }
             catch (IOException e) {

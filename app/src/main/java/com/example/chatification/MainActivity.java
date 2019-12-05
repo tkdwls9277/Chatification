@@ -1,6 +1,7 @@
 package com.example.chatification;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,4 +34,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private class LogInTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            startActivity(new Intent(getApplicationContext(), MenuActivity.class)); // 안될지도
+
+        }
+    }
 }

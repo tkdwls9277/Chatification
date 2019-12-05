@@ -36,6 +36,7 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
 
         viewHolder.tvTitle.setText(listItem.getTitle());
         viewHolder.tvEndDate.setText(listItem.getEndDate());
+        if(listItem.isStatus()) viewHolder.signInBtn.setText("신청");
     }
 
     @Override

@@ -91,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity {
                     buff.append(line + "\n");
                 }
                 data = buff.toString().trim();
-                Log.e("RECV DATA",data);
+                Log.e("RECV DATA", data);
 
             }
             catch (MalformedURLException e) {
