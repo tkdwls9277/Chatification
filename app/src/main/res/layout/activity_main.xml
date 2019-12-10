@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="0.9"
-    >
-
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/TextView_get"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
-        android:textSize="20sp"
-        android:layout_weight="0.1"
-
-        >
-
-    </TextView>
-    <TextView
-        android:id="@+id/TextView_2"
-        android:layout_width="match_parent"
+        android:text="Chatification"
+        android:textSize="50px"
+        android:layout_above="@+id/editId"
+        android:layout_centerHorizontal="true"
+        android:padding="30px"
+        />
+    <EditText
+        android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:text="2"
-        android:textSize="20sp"
-        android:layout_weight="0.7"
-        >
-
-    </TextView>
-    <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/editId"
+        android:hint="I D"
+        android:textAlignment="center"
+        android:layout_above="@+id/editPw"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:text="3"
-        android:textSize="20sp"
-        android:layout_weight="0.1"
-        >
+        android:id="@+id/editPw"
+        android:hint="P A S S W O R D"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30px"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/editPw"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/loginBtn"
+        android:text="로그인"
+        android:textSize="50px"/>
 
-    </TextView>
-
-</LinearLayout>
-
+</RelativeLayout>
