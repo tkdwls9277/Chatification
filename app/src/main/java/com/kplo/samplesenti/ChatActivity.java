@@ -26,7 +26,7 @@ public class ChatActivity extends AppCompatActivity {
     public  RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<ChatData> chatList;
-    private String nick = "nick2";
+    private String nick = "nick1";
 
     private EditText EditText_chat;
     private Button Button_send;
