@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-common:19.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-19.1.0.aar/7f84d35de5c4e045f961a4f256a8307e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-19.1.0.aar/7f84d35de5c4e045f961a4f256a8307e/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-common/19.1.0/7f59c916cc7e754e89e926aa1a9479561cd3274e/firebase-common-19.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-common/19.1.0/d90a1a7e31c6433f127654b9b3683a13a807b4d0/firebase-common-19.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
