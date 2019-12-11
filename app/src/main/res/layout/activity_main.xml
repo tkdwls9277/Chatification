@@ -12,7 +12,8 @@
         android:textSize="50px"
         android:layout_above="@+id/editId"
         android:layout_centerHorizontal="true"
-        android:padding="30px"/>
+        android:padding="30px"
+        />
     <EditText
         android:layout_width="500px"
         android:layout_height="wrap_content"
