@@ -1,6 +1,5 @@
 package com.example.chatification;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,17 +26,19 @@ public class ChattingFragment extends Fragment {
     private MenuListAdapter mlistAdapter;
     private RecyclerView recyclerView;
     private ArrayList<ListItem> arrayList = new ArrayList<>();
+    private DatabaseReference dbReference;
+
+    private String id;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.chatting_fragment, container, false);
 
+        id = getArguments().getString("u_id");
         recyclerView = rootView.findViewById(R.id.recyclerView);
 
         new CrawlingTask().execute();
-        //recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-//        recyclerView.setAdapter(mlistAdapter);
 
         return rootView;
     }
@@ -43,6 +47,9 @@ public class ChattingFragment extends Fragment {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
+            dbReference = FirebaseDatabase.getInstance().getReference().getRoot();
+
             try {
 
                 SSLConnect ssl = new SSLConnect(); // SSL 인증서 오류 해결하기 위한 클래스, 정확히 어떤 일을 하는 지는 잘 모르겠다.
@@ -65,6 +72,8 @@ public class ChattingFragment extends Fragment {
                     // Log.e(title, tdText);
 
                     arrayList.add(new ListItem(title, endDate, status));
+
+                    dbReference.child(title).push(); // 아닐 수도
                 }
             }
             catch (IOException e) {
@@ -72,15 +81,18 @@ public class ChattingFragment extends Fragment {
                 //e.printStackTrace();
             }
 
+
+
             return null;
         }
 
         @Override
         protected void onPostExecute (Void result) {
-            mlistAdapter = new MenuListAdapter(arrayList);
+            mlistAdapter = new MenuListAdapter(arrayList, id);
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            recyclerView.setAdapter(mlistAdapter); // 테스트 해보자
+
+            recyclerView.setAdapter(mlistAdapter);
 
         }
     }

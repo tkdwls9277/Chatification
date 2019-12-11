@@ -26,17 +26,22 @@ public class ChatActivity extends AppCompatActivity {
     public  RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<ChatData> chatList;
-    private String nick = "nick2";
 
     private EditText EditText_chat;
     private Button Button_send;
     private DatabaseReference myRef;
+
+    private String roomName;
+    private String nick = "nick2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        roomName = getIntent().getStringExtra("roomName");
+        nick = getIntent().getStringExtra("u_id");
+        // 유저 이름이 필요할 지도
 
         Button_send = findViewById(R.id.Button_send);
         EditText_chat = findViewById(R.id.EditText_chat);
@@ -64,13 +69,13 @@ public class ChatActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         chatList = new ArrayList<>();
-        mAdapter = new ChatAdapter(chatList, ChatActivity.this, nick);
+        mAdapter = new ChatAdapter(chatList, nick);
 
         mRecyclerView.setAdapter(mAdapter);
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference();
+        myRef = database.getReference().child(roomName);
 
 
         //caution!!!

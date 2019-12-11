@@ -3,6 +3,7 @@ package com.example.chatification;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ChatAdapter(List<ChatData> myDataset, Context context, String myNickName) {
+    public ChatAdapter(List<ChatData> myDataset, String myNickName) {
         //{"1","2"}
         mDataset = myDataset;
         this.myNickName = myNickName;
@@ -65,11 +66,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         ChatData chat = mDataset.get(position);
+        // Log.e("chat.getNickname", chat.getNickname());
+        // Log.e("this.myNickName", this.myNickName);
 
         holder.TextView_nickname.setText(chat.getNickname());
         holder.TextView_msg.setText(chat.getMsg());
 
-        if(chat.getNickname().equals(this.myNickName)) {
+        if(chat.getNickname().equals(this.myNickName)) { // getNickname 이 문제
             holder.TextView_msg.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             holder.TextView_nickname.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
         }

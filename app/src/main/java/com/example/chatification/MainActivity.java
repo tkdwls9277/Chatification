@@ -24,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
     public void onClickBtn(View v) {
         switch (v.getId()) {
             case R.id.loginBtn:
+                String id = editId.getText().toString();
+                Intent intent = new Intent(v.getContext(), MenuActivity.class);
+                intent.putExtra("u_id", id); // 임시로 intent로 보내자.
 
-                startActivity(new Intent(v.getContext(), MenuActivity.class));
+                startActivity(intent);
                 break;
             case R.id.signUpBtn:
                 startActivity(new Intent(v.getContext(), SignUpActivity.class));

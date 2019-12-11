@@ -11,18 +11,28 @@ public class MenuActivity extends AppCompatActivity {
     private FragmentManager fm;
     private FragmentTransaction fta;
 
+    private String id;
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        id = getIntent().getStringExtra("u_id");
+
+        Bundle bundle = new Bundle(1);
+        bundle.putString("u_id", id);
+
+        ChattingFragment chattingFragment = new ChattingFragment();
+        chattingFragment.setArguments(bundle);
+
         fm = getSupportFragmentManager();
         fta = fm.beginTransaction();
-        fta.add(R.id.frameLayout, new ChattingFragment()); // add말고 replace로 바꿔야할 수도
+        fta.add(R.id.frameLayout, chattingFragment);
         fta.commit();
     }
 
-    public void onClickImageView(View v) {
+    public void onClickImageView(View v) { // 미완
         switch (v.getId()) {
             case R.id.profile:
                 fta.replace(R.id.frameLayout, new ProfileFragment());
