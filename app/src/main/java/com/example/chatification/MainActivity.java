@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
         editId = findViewById(R.id.editId);
         editPw = findViewById(R.id.editPw);
-
     }
 
     public void onClickBtn(View v) {
