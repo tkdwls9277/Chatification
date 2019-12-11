@@ -6,4 +6,5 @@ public class ServerCommunication {
     // http://117.16.152.128:8080
 
     // 추가 예정
+
 }
